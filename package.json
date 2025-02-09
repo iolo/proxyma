@@ -1,0 +1,12 @@
+{
+  "name": "@iolo/proxyma",
+  "version": "0.0.1",
+  "description": "simple named virutal host proxy server for development",
+  "license": "MIT",
+  "author": "Dongsu Jang <iolo@kakao.com>",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs"
+  }
+}
