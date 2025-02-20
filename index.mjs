@@ -16,16 +16,16 @@ const handler = (req, res) => {
       port: target.port,
       path: req.url,
       method: req.method,
-      headers: { ...req.headers, host: `${target.host}:${target.port}` },
+      headers: {...req.headers, host: `${target.host}:${target.port}`},
     };
     const httpModule = target.protocol == 'http' ? http : https;
     const targetResponseHandler = (targetResponse) => {
       console.log(`\t${targetResponse.statusCode}`);
       res.writeHead(targetResponse.statusCode, targetResponse.headers);
-      targetResponse.pipe(res, { end: true });
+      targetResponse.pipe(res, {end: true});
     };
     const targetRequest = httpModule.request(targetRequestOptions, targetResponseHandler);
-    req.pipe(targetRequest, { end: true });
+    req.pipe(targetRequest, {end: true});
   } else {
     console.log(`${host}${req.url} -> not found`);
     res.writeHead(404);
@@ -44,7 +44,7 @@ http.createServer(handler).listen(httpPort, () => {
 const httpsPort = config.http?.port ?? 443;
 const httpsKey = fs.readFileSync(config.https?.key ?? 'cert.key');
 const httpsCert = fs.readFileSync(config.https?.cert ?? 'cert.pem');
-https.createServer({ key: httpsKey, cert: httpsCert }, handler).listen(httpsPort, () => {
+https.createServer({key: httpsKey, cert: httpsCert}, handler).listen(httpsPort, () => {
   console.log(`HTTPS server listening on port ${httpsPort}`);
 });
 

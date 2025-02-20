@@ -3,7 +3,8 @@
 > simple named virutal host proxy server for development
 
 For example, you want to run some servers on local(development) but some servers on remote(production or staging).
-You can use `proxyma` to proxy requests to the right server by the domain name without complex web servers like `nginx` or `apache`.
+You can use `proxyma` to proxy requests to the right server by the domain name without complex web servers like `nginx`
+or `apache`.
 
 ## Prepare hosts files or DNS
 
@@ -95,7 +96,8 @@ node index.mjs
 
 ### Connect to the proxy-server
 
-- https://example.com, https://example.com, http://example.com or http://example.com will be proxied to `http://localhost:3000`
+- https://example.com, https://example.com, http://example.com or http://example.com will be proxied to
+  `http://localhost:3000`
 - https://api.example.com or http://api.example.com will be proxied to `http://localhost:4000`
 - https://auth.example.com or http://auth.example.com will be proxied to `https://auth.example.com`
 
